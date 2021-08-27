@@ -6,7 +6,6 @@ import (
 	"context"
 	"io"
 	"io/ioutil"
-	"os"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/client"
@@ -42,12 +41,7 @@ func BuildImage(c *client.Client, dockerfile io.Reader, opt types.ImageBuildOpti
 		return err
 	}
 
-	// Read the STDOUT from the build process
-	defer res.Body.Close()
-	_, err = io.Copy(os.Stdout, res.Body)
-	if err != nil {
-		return err
-	}
+	Print(res.Body)
 
 	return nil
 }
