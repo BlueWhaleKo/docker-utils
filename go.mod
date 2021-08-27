@@ -1,4 +1,4 @@
-module github.com/koko8624/docker-utils
+module github.com/BlueWhaleKo/docker-utils
 
 go 1.16
 
