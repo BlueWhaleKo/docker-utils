@@ -39,8 +39,5 @@ func BuildImage(c *client.Client, dockerfile io.Reader, opt types.ImageBuildOpti
 	if err != nil {
 		return types.ImageBuildResponse{}, err
 	}
-
-	Print(res.Body)
-
 	return res, nil
 }
